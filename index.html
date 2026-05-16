@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Panchang - Muhurat & Kaal Timings</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>🕉️ Daily Panchang</h1>
+            <p class="subtitle">Muhurat & Kaal Timings for Mumbai</p>
+        </header>
+
+        <!-- Date Navigation -->
+        <div class="date-navigation">
+            <button id="prevDay" class="nav-btn">← Previous</button>
+            <div class="date-picker-wrapper">
+                <input type="date" id="datePicker" />
+                <button id="todayBtn" class="today-btn">Today</button>
+            </div>
+            <button id="nextDay" class="nav-btn">Next →</button>
+        </div>
+
+        <!-- Current Time Display -->
+        <div class="current-time" id="currentTime">
+            Loading...
+        </div>
+
+        <!-- Sunrise/Sunset Info -->
+        <div class="sun-info">
+            <div class="sun-item sunrise">
+                <div class="sun-label">Sun Rise</div>
+                <div class="sun-time" id="sunriseTime">--:--</div>
+            </div>
+            <div class="sun-item sunset">
+                <div class="sun-label">Sun Set</div>
+                <div class="sun-time" id="sunsetTime">--:--</div>
+            </div>
+        </div>
+
+        <!-- Timeline Display -->
+        <div class="timeline-container" id="timelineContainer">
+            <div class="loading">Loading timeline...</div>
+        </div>
+
+        <!-- Legend -->
+        <div class="legend">
+            <h3>Legend</h3>
+            <div class="legend-items">
+                <div class="legend-item">
+                    <span class="legend-color auspicious"></span>
+                    <span>Auspicious (Brahma Muhurta, Abhijit, Godhuli)</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color inauspicious"></span>
+                    <span>Inauspicious (Rahu Kaal, Yamagandam, Gulika Kaal)</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color free"></span>
+                    <span>Free Time (Neutral)</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color active"></span>
+                    <span>Currently Active Period</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>Data source: Google Sheets via OpenSheet API</p>
+            <p>Calculations based on traditional Vedic Panchang methods</p>
+        </footer>
+    </div>
+
+    <script src="panchang-calculator.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

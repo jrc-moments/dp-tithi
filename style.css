@@ -1,0 +1,404 @@
+/* ====================================
+   GENERAL STYLES
+   ==================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+/* ====================================
+   HEADER
+   ==================================== */
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* ====================================
+   DATE NAVIGATION
+   ==================================== */
+.date-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #f8f9fa;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.date-picker-wrapper {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex: 1;
+    justify-content: center;
+}
+
+#datePicker {
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: 2px solid #667eea;
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+    background: white;
+    transition: all 0.3s;
+}
+
+#datePicker:hover {
+    border-color: #764ba2;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.nav-btn, .today-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 600;
+}
+
+.nav-btn {
+    background: #667eea;
+    color: white;
+}
+
+.nav-btn:hover {
+    background: #764ba2;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.today-btn {
+    background: #28a745;
+    color: white;
+}
+
+.today-btn:hover {
+    background: #218838;
+    transform: translateY(-2px);
+}
+
+/* ====================================
+   CURRENT TIME
+   ==================================== */
+.current-time {
+    padding: 20px;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #667eea;
+    background: linear-gradient(to right, #f8f9fa, #e9ecef);
+    border-bottom: 3px solid #667eea;
+}
+
+/* ====================================
+   SUNRISE/SUNSET INFO
+   ==================================== */
+.sun-info {
+    display: flex;
+    justify-content: space-around;
+    padding: 25px;
+    background: linear-gradient(to bottom, #fff9e6, #fff);
+    border-bottom: 2px solid #ffd700;
+}
+
+.sun-item {
+    text-align: center;
+}
+
+.sun-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.sunrise .sun-label {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.sunset .sun-label {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.sun-time {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+}
+
+/* ====================================
+   TIMELINE
+   ==================================== */
+.timeline-container {
+    padding: 30px;
+    min-height: 400px;
+}
+
+.loading {
+    text-align: center;
+    padding: 50px;
+    font-size: 1.2rem;
+    color: #999;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    transition: all 0.3s;
+    border-left: 5px solid transparent;
+}
+
+.timeline-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Timeline Item Colors */
+.timeline-item.brahma-muhurta,
+.timeline-item.abhijit-muhurta,
+.timeline-item.godhuli-kaal {
+    background: linear-gradient(to right, #d4edda, #c3e6cb);
+    border-left-color: #28a745;
+}
+
+.timeline-item.rahu-kaal,
+.timeline-item.yamagandam,
+.timeline-item.gulika-kaal {
+    background: linear-gradient(to right, #f8d7da, #f5c6cb);
+    border-left-color: #dc3545;
+}
+
+.timeline-item.free-time {
+    background: linear-gradient(to right, #d1ecf1, #bee5eb);
+    border-left-color: #17a2b8;
+}
+
+/* Active Period Highlight */
+.timeline-item.active {
+    animation: pulse 2s infinite;
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+    border-left-width: 8px;
+    font-weight: 700;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(102, 126, 234, 0.8);
+    }
+}
+
+.timeline-time {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+    min-width: 140px;
+    color: #333;
+}
+
+.timeline-time::before {
+    content: '🕐';
+    font-size: 1.2rem;
+}
+
+.timeline-name {
+    flex: 1;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* ====================================
+   LEGEND
+   ==================================== */
+.legend {
+    padding: 25px 30px;
+    background: #f8f9fa;
+    border-top: 2px solid #dee2e6;
+}
+
+.legend h3 {
+    margin-bottom: 15px;
+    color: #667eea;
+    font-size: 1.3rem;
+}
+
+.legend-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 12px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+}
+
+.legend-color {
+    width: 40px;
+    height: 20px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.legend-color.auspicious {
+    background: linear-gradient(to right, #d4edda, #c3e6cb);
+    border: 2px solid #28a745;
+}
+
+.legend-color.inauspicious {
+    background: linear-gradient(to right, #f8d7da, #f5c6cb);
+    border: 2px solid #dc3545;
+}
+
+.legend-color.free {
+    background: linear-gradient(to right, #d1ecf1, #bee5eb);
+    border: 2px solid #17a2b8;
+}
+
+.legend-color.active {
+    background: #667eea;
+    border: 2px solid #764ba2;
+    animation: pulse-legend 2s infinite;
+}
+
+@keyframes pulse-legend {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
+}
+
+/* ====================================
+   FOOTER
+   ==================================== */
+footer {
+    padding: 20px;
+    text-align: center;
+    background: #f8f9fa;
+    color: #666;
+    font-size: 0.9rem;
+    border-top: 2px solid #dee2e6;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* ====================================
+   RESPONSIVE DESIGN
+   ==================================== */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .date-navigation {
+        flex-direction: column;
+    }
+
+    .date-picker-wrapper {
+        width: 100%;
+    }
+
+    .nav-btn {
+        width: 100%;
+    }
+
+    .sun-info {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .current-time {
+        font-size: 1.5rem;
+    }
+
+    .timeline-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .timeline-time {
+        margin-bottom: 8px;
+    }
+
+    .legend-items {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        border-radius: 10px;
+    }
+
+    header {
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    .subtitle {
+        font-size: 0.9rem;
+    }
+}
