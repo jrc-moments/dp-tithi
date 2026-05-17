@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=960,height=540,initial-scale=1.0">
+  <title>Muhurat TV</title>
+  <link rel="stylesheet" href="tv-style.css">
+</head>
+<body>
+  <div id="tv-app">
+    <section class="top-row">
+      <div class="panel clock-panel">
+        <div class="clock-wrap">
+          <div class="clock-face"></div>
+          <div id="hourHand" class="hand hour"></div>
+          <div id="minuteHand" class="hand minute"></div>
+          <div id="secondHand" class="hand second"></div>
+          <div class="center-dot"></div>
+        </div>
+        <div id="clockDate" class="date">Loading...</div>
+      </div>
+
+      <div class="panel current-panel">
+        <div id="currentLabel" class="panel-label"></div>
+        <div id="currentStatus" class="status"></div>
+        <div id="currentCountdown" class="countdown"></div>
+      </div>
+    </section>
+
+    <section class="timeline-panel">
+      <div id="timelineBar" class="timeline-bar"></div>
+    </section>
+  </div>
+
+  <script src="panchang-calculator.js"></script>
+  <script src="tv-app.js"></script>
+</body>
+</html>
